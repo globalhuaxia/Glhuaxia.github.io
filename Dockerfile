@@ -23,3 +23,9 @@ RUN chmod +x ./scripts/*.sh
 ENV RUN_IN_DOCKER=true
 
 CMD ["/bin/sh", "./scripts/run.sh"]
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
